@@ -10,7 +10,8 @@ class WeatherRemoteDataSource {
 
       return response.data;
     } on DioError catch (error) {
-      throw Exception(error.response?.data ?? 'Unknown error');
+      throw Exception(
+          error.response?.data['error']['message'] ?? 'Unknown error');
     }
   }
 }
